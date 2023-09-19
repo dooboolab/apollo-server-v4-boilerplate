@@ -1,0 +1,108 @@
+# import 'enum.graphql'
+# import 'scalar.graphql'
+# import 'input.graphql'
+
+interface Timestamp {
+  createdAt: DateTime!
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User implements Timestamp {
+  id: ID!
+  email: String
+  name: String
+  birthday: DateTime
+  gender: Gender
+  displayName: String
+  phone: String
+  thumbUrl: String
+  photoUrl: String
+
+  settings: Settings
+
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime
+}
+
+type Image {
+  id: ID!
+  imageUrl: String
+  thumbUrl: String
+  createdAt: DateTime
+
+  """
+  퀄리티 좋은 썸네일. 두개 이상의 depth가 있을 때 용이.
+  """
+  thumbUrlHigh: String
+}
+
+type File {
+  id: ID!
+  url: String
+  name: String
+  size: Int
+  type: String
+  createdAt: DateTime
+}
+
+type Settings {
+  authType: AuthType
+  id: ID
+  socialId: String
+}
+
+type UserConnection {
+  """
+  https://facebook.github.io/relay/graphql/connections.htm#sec-Edge-Types
+  """
+  edges: [UserEdge]
+
+  """
+  https://facebook.github.io/relay/graphql/connections.htm#sec-undefined.PageInfo
+  """
+  pageInfo: PageInfo!
+}
+
+type UserEdge {
+  """
+  https://facebook.github.io/relay/graphql/connections.htm#sec-Cursor
+  """
+  cursor: String!
+
+  """
+  https://facebook.github.io/relay/graphql/connections.htm#sec-Node
+  """
+  node: User
+}
+
+"""
+PageInfo cursor, as defined in https://facebook.github.io/relay/graphql/connections.htm#sec-undefined.PageInfo
+"""
+type PageInfo {
+  """
+  The cursor corresponding to the last nodes in edges. Null if the connection is empty.
+  """
+  endCursor: String
+
+  """
+  Used to indicate whether more edges exist following the set defined by the clients arguments.
+  """
+  hasNextPage: Boolean!
+
+  """
+  Used to indicate whether more edges exist prior to the set defined by the clients arguments.
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  The cursor corresponding to the first nodes in edges. Null if the connection is empty.
+  """
+  startCursor: String
+}

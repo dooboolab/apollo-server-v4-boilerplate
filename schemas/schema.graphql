@@ -1,0 +1,66 @@
+# import 'enum.graphql'
+# import 'scalar.graphql'
+# import 'type.graphql'
+# import 'input.graphql'
+
+scalar Upload
+
+type Query {
+  user(id: ID!): User
+
+  """
+  User 페이지네이션 쿼리
+  """
+  users(
+    """
+    Returns the elements in the list that come after the specified cursor
+    """
+    after: String
+
+    """
+    Returns the first n elements from the list.
+    """
+    first: Int!
+
+    """
+    검색 텍스트
+    """
+    searchText: String
+  ): UserConnection
+
+  me: User
+}
+
+type Mutation {
+  sendVerification(email: String!): Boolean!
+  verifyEmailCode(email: String!, emailCode: String!): AuthPayload!
+  signInEmail(email: String!, password: String!): AuthPayload!
+  signUp(image: Upload, user: UserCreateInput!): User!
+
+  signInWithApple(accessToken: String!): AuthPayload!
+  signInWithFacebook(accessToken: String!): AuthPayload!
+  signInWithGoogle(accessToken: String!): AuthPayload!
+
+  """
+  유저 프로필 수정. 프로필 업데이트시 사용자 `displayName`이 중복되면 에러 던짐.
+  """
+  updateProfile(
+    image: Upload
+    user: UserUpdateInput!
+
+    """
+    사진을 지우는지 여부
+    """
+    shouldDeleteImage: Boolean = false
+  ): User
+
+  """
+  회원 탈퇴하기
+  """
+  withdrawUser: Boolean!
+}
+
+type Subscription {
+  userSignedIn(userId: String!): User
+  userUpdated(userId: String!): User
+}

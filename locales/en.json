@@ -1,0 +1,15 @@
+{
+  "ERR_DISPLAY_NAME_EXISTS": "Display name already exists",
+  "ERR_EMAIL_ALREADY_EXISTS": "User with email already exists with different provider",
+  "ERR_IS_SOCIAL_USER": "Current account is signed up with social account",
+  "ERR_NOT_AUTHORIZED": "Not authorized user!",
+  "ERR_PASSWORD_INCORRECT": "Password is incorrect",
+  "ERR_SIGN_IN": "Error occurred during sign in",
+  "ERR_SIGN_IN_WITH_SOCIAL": "Error occurred during signing in with social account",
+  "ERR_UNKNOWN": "Error occurred. Please try again.",
+  "ERR_UPLOAD": "Error occurred during upload",
+  "ERR_USER_CANCELED_ACCOUNT": "Canceled account. Please contact us if you have any questions",
+  "ERR_USER_CREATE_FAILED": "Could not create user. Please try again with different email address",
+  "ERR_USER_NOT_EXISTS": "User does not exists",
+  "IT_WORKS": "It works!"
+}

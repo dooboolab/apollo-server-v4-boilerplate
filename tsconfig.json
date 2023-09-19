@@ -1,0 +1,47 @@
+{
+  "baseUrl": "types",
+  "typeRoots": ["types"],
+  "compilerOptions": {
+    "rootDirs": ["src"],
+    "baseUrl": "./src",
+    "outDir": "dist",
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "types": ["node"],
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration":false,
+    "noLib":false,
+    "sourceMap":true,
+    "inlineSources": true,
+    "sourceRoot": "/",
+    "pretty":true,
+    "allowUnreachableCode":true,
+    "allowUnusedLabels":true,
+    "noImplicitAny":false,
+    "noImplicitReturns":false,
+    "noImplicitUseStrict":false,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "listFiles":false,
+    "strict": true,
+  },
+  "files": ["environment.d.ts"],
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "tests/**/*",
+    "**/*.spec.ts",
+    "generated/graphql.ts"
+  ]
+}

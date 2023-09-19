@@ -1,0 +1,11 @@
+enum AuthType {
+  Apple
+  Email
+  Facebook
+  Google
+}
+
+enum Gender {
+  Female
+  Male
+}

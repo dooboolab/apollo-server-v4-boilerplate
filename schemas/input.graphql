@@ -1,0 +1,22 @@
+# import 'enum.graphql'
+# import 'scalar.graphql'
+
+input UserCreateInput {
+  birthday: DateTime
+  email: String!
+  gender: Gender
+  name: String
+  displayName: String
+  password: String!
+  phone: String
+  statusMessage: String
+}
+
+input UserUpdateInput {
+  birthday: DateTime
+  gender: Gender
+  name: String
+  displayName: String
+  phone: String
+  statusMessage: String
+}
